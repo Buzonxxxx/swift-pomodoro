@@ -30,6 +30,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        
+        // HACK: Force viewWillAppear to be called in our viewController
+        window?.rootViewController?.beginAppearanceTransition(true, animated: false)
+        window?.rootViewController?.endAppearanceTransition()
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -46,6 +50,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
+        
+        // HACK: Force viewWillDisappear to be called in our viewcontroller
+        window?.rootViewController?.beginAppearanceTransition(false, animated: false)
+        window?.rootViewController?.endAppearanceTransition()
     }
 
 
